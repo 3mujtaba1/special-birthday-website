@@ -473,7 +473,7 @@ const MiniTetrisGifts = () => {
 
   // Handle main page navigation
   const handleMainPage = () => {
-    window.location.href = '/games'; 
+    window.location.href = '/#/games'; 
   };
 
   return (

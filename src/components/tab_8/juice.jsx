@@ -503,7 +503,7 @@ const FruitMixer = () => {
   }, []);
 
   const goToGameZone = () => {
-    window.location.href = '/games';
+    window.location.href = '/#/games';
   };
 
   const restartGame = () => {

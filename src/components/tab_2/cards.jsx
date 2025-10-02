@@ -39,7 +39,7 @@ const Stack = () => {
     <div className="cardstack-root" style={{ position: "relative", minHeight: "100vh" }}>
       <Fireworks />
 
-      <button className="go-to-main-button" onClick={() => window.location.href = '/main-page'}>
+      <button className="go-to-main-button" onClick={() => window.location.href = '/#/main-page'}>
         Go To Main Page
       </button>
 

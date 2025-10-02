@@ -216,7 +216,7 @@ const WhackAMoleBirthday = () => {
   }, []);
 
   const goToGameZone = () => {
-    window.location.href = '/games';
+    window.location.href = '/#/games';
   };
 
   // Cleanup on unmount

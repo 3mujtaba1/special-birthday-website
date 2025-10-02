@@ -252,7 +252,7 @@ const EnchantedGardenMemory = () => {
             <button className="enchanted-garden-restart-btn" onClick={initGame}>
               Plant New Garden
             </button>
-            <button className="enchanted-garden-home-btn" onClick={() => window.location.href = '/games'}>
+            <button className="enchanted-garden-home-btn" onClick={() => window.location.href = '/#/games'}>
               Go To Game Zone
             </button>
           </div>

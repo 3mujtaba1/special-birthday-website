@@ -370,7 +370,7 @@ const DreamyStarCatcher = () => {
           <button className="dreamy-play-again-btn" onClick={handlePlayAgain}>
             ✨ Play Again ✨
           </button>
-          <button className="go-to-game-zone" onClick={() => window.location.href = '/games'}>
+          <button className="go-to-game-zone" onClick={() => window.location.href = '/#/games'}>
             ✨ Go To Game Zone ✨
           </button>
         </div>
