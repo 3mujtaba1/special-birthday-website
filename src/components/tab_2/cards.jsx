@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import './cards.css';
 import Fireworks from "../../utils/fireworks";
-import Loader from "../../utils/Loader.jsx"; // Import loader
+import Loader from "../../utils/loader.jsx"; // Import loader
 import { useNavigate } from 'react-router-dom';
 
 

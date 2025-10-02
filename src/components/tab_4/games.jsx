@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './games.css';
 import avatar1 from '../../assets/avatar_1.png';
-import Loader from '../../utils/Loader.jsx'; // Loader import
+import Loader from '../../utils/loader.jsx'; // Loader import
 
 const GamesHomepage = () => {
   const navigate = useNavigate();

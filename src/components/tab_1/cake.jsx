@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './cake.css'
 import { useNavigate } from 'react-router-dom';
-import Loader from '../../utils/Loader.jsx'; //  Import loader
+import Loader from '../../utils/loader.jsx'; //  Import loader
 
 const Cake = () => {
   const navigate = useNavigate();

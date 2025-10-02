@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './confetti.css';
-import Loader from '../../utils/Loader.jsx'; // Loader import
+import Loader from '../../utils/loader.jsx'; // Loader import
 
 const Confetti = () => {
     const canvasRef = useRef(null);
