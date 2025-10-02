@@ -46,6 +46,9 @@ const Stack = () => {
       <div style={{ position: "relative", zIndex: 1 }}></div>
         <div className="cardstack-stack" ref={stackRef}>
         <div className="cardstack-card">
+            <div className="cardstack-card-content">PLEASE READ ALL THE CARDS THAT DESCRIBE YOU IN A REALLY LOVELY WAY 🤭 </div>
+        </div>
+        <div className="cardstack-card">
             <div className="cardstack-card-content">The way your eyes sparkle feels like magic I never want to end.</div>
         </div>
         <div className="cardstack-card">
@@ -246,9 +249,7 @@ const Stack = () => {
         <div className="cardstack-card">
             <div className="cardstack-card-content">I love how your eyes speak volumes without words</div>
         </div>
-        <div className="cardstack-card">
-            <div className="cardstack-card-content">PLEASE READ ALL THE CARDS THAT DESCRIBE YOU IN A REALLY LOVELY WAY 🤭 </div>
-        </div>
+        
     </div>
     </div>
   );
