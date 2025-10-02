@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './juice.css';
+import { useNavigate } from 'react-router-dom';
 
 const FruitMixer = () => {
   // Game data
@@ -93,6 +94,7 @@ const FruitMixer = () => {
   const [perfectGlow, setPerfectGlow] = useState(false);
   const [currentJuiceColor, setCurrentJuiceColor] = useState('#FFFFFF');
   const [gameMessage, setGameMessage] = useState('');
+  const navigate = useNavigate();
 
   // Refs for game state that doesn't need to trigger re-renders
   const fruitsRef = useRef([]);
@@ -503,7 +505,7 @@ const FruitMixer = () => {
   }, []);
 
   const goToGameZone = () => {
-    window.location.href = '/#/games';
+    navigate('/games');
   };
 
   const restartGame = () => {

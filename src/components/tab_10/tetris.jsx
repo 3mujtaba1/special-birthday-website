@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './tetris.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom';
 
 const MiniTetrisGifts = () => {
   const canvasRef = useRef(null);
   const nextCanvasRef = useRef(null);
   const gameLoopRef = useRef(null);
   const sparklesContainerRef = useRef(null);
+  const navigate = useNavigate();
 
   // Game constants
   const TETROMINOES = {
@@ -473,7 +475,7 @@ const MiniTetrisGifts = () => {
 
   // Handle main page navigation
   const handleMainPage = () => {
-    window.location.href = '/#/games'; 
+    navigate('/games'); 
   };
 
   return (

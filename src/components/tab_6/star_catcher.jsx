@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import './star_catcher.css';
+import { useNavigate } from 'react-router-dom';
 
 const DreamyStarCatcher = () => {
   const canvasRef = useRef(null);
@@ -8,7 +9,8 @@ const DreamyStarCatcher = () => {
   const [starsCollected, setStarsCollected] = useState(0);
   const [gameState, setGameState] = useState('playing');
   const [progressWidth, setProgressWidth] = useState(0);
-
+  const navigate = useNavigate();
+  
   // Game settings
   const settings = {
     targetStars: 18,
@@ -370,7 +372,7 @@ const DreamyStarCatcher = () => {
           <button className="dreamy-play-again-btn" onClick={handlePlayAgain}>
             ✨ Play Again ✨
           </button>
-          <button className="go-to-game-zone" onClick={() => window.location.href = '/#/games'}>
+          <button className="go-to-game-zone" onClick={() => navigate('/games')}>
             ✨ Go To Game Zone ✨
           </button>
         </div>

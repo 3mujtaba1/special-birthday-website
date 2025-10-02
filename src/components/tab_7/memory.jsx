@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './memory.css';
+import { useNavigate } from 'react-router-dom';
 
 const EnchantedGardenMemory = () => {
   const [gameState, setGameState] = useState({
@@ -16,6 +17,7 @@ const EnchantedGardenMemory = () => {
   const [currentCompliment, setCurrentCompliment] = useState('');
   const [showWinModal, setShowWinModal] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
+  const navigate = useNavigate();
 
   const timerRef = useRef(null);
 
@@ -252,7 +254,7 @@ const EnchantedGardenMemory = () => {
             <button className="enchanted-garden-restart-btn" onClick={initGame}>
               Plant New Garden
             </button>
-            <button className="enchanted-garden-home-btn" onClick={() => window.location.href = '/#/games'}>
+            <button className="enchanted-garden-home-btn" onClick={() => navigate('/games')}>
               Go To Game Zone
             </button>
           </div>

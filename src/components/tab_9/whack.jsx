@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './whack.css';
+import { useNavigate } from 'react-router-dom';
 
 const WhackAMoleBirthday = () => {
   // Game data
@@ -38,6 +39,9 @@ const WhackAMoleBirthday = () => {
     },
     confettiColors: ["#FF69B4", "#FFD700", "#98FB98", "#87CEEB", "#DDA0DD", "#F0E68C"]
   };
+  
+
+  const navigate = useNavigate();
 
   // Game state
   const [currentScreen, setCurrentScreen] = useState('welcome');
@@ -216,7 +220,7 @@ const WhackAMoleBirthday = () => {
   }, []);
 
   const goToGameZone = () => {
-    window.location.href = '/#/games';
+    navigate('/games');
   };
 
   // Cleanup on unmount

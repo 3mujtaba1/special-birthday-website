@@ -2,10 +2,12 @@ import React, { useRef, useEffect } from "react";
 import './cards.css';
 import Fireworks from "../../utils/fireworks";
 import Loader from "../../utils/Loader.jsx"; // Import loader
+import { useNavigate } from 'react-router-dom';
 
 
 const Stack = () => {
   const stackRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const stack = stackRef.current;
@@ -39,7 +41,7 @@ const Stack = () => {
     <div className="cardstack-root" style={{ position: "relative", minHeight: "100vh" }}>
       <Fireworks />
 
-      <button className="go-to-main-button" onClick={() => window.location.href = '/#/main-page'}>
+      <button className="go-to-main-button" onClick={() => navigate('/main-page')}>
         Go To Main Page
       </button>
 

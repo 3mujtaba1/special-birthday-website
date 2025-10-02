@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './heart_maze.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const HeartMazeGame = () => {
   const canvasRef = useRef(null);
   const gameRef = useRef(null);
 
+  const navigate = useNavigate();
+  
   // Game data and configuration
   const gameData = {
     mazeLayout: [
@@ -143,7 +146,7 @@ const HeartMazeGame = () => {
                 Play Again
               </button>
             )}
-            <button className="heartMaze_gameZoneBtn" onClick={() => window.location.href = '/#/games'}>🎮 Go To Game Zone</button>
+            <button className="heartMaze_gameZoneBtn" onClick={() => navigate('/games')}>🎮 Go To Game Zone</button>
           </div>
         )}
 
