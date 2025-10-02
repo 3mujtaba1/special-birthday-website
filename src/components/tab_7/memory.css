@@ -1,0 +1,426 @@
+/* Enchanted Garden Memory Game - Locally Scoped CSS */
+/* All classes prefixed with 'enchanted-garden-' to avoid conflicts */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&display=swap');
+
+/* Container and Layout */
+.enchanted-garden-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FDF8F7 0%, #F4E4E1 50%, #E8B4B8 100%);
+  font-family: 'Great Vibes', cursive;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.enchanted-garden-floating-petals {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.enchanted-garden-petal {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0.7;
+  animation: enchanted-garden-float infinite linear;
+}
+
+.enchanted-garden-petal.petal-1 {
+  left: 10%;
+  animation-duration: 15s;
+  animation-delay: 0s;
+}
+
+.enchanted-garden-petal.petal-2 {
+  left: 20%;
+  animation-duration: 18s;
+  animation-delay: 3s;
+}
+
+.enchanted-garden-petal.petal-3 {
+  left: 40%;
+  animation-duration: 12s;
+  animation-delay: 6s;
+}
+
+.enchanted-garden-petal.petal-4 {
+  left: 60%;
+  animation-duration: 20s;
+  animation-delay: 2s;
+}
+
+.enchanted-garden-petal.petal-5 {
+  left: 80%;
+  animation-duration: 16s;
+  animation-delay: 8s;
+}
+
+.enchanted-garden-petal.petal-6 {
+  left: 90%;
+  animation-duration: 14s;
+  animation-delay: 4s;
+}
+
+@keyframes enchanted-garden-float {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.enchanted-garden-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header Styles */
+.enchanted-garden-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.enchanted-garden-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  color: #8B4B6B;
+  text-shadow: 2px 2px 4px rgba(139, 75, 107, 0.3);
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.enchanted-garden-stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  font-family: 'Dancing Script', cursive;
+}
+
+.enchanted-garden-stat-item {
+  text-align: center;
+}
+
+.enchanted-garden-stat-label {
+  display: block;
+  font-size: 1.2rem;
+  color: #C49A9C;
+  margin-bottom: 5px;
+}
+
+.enchanted-garden-stat-value {
+  display: block;
+  font-size: 1.8rem;
+  color: #8B4B6B;
+  font-weight: 700;
+}
+
+.enchanted-garden-restart-btn {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #E8B4B8, #C49A9C);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(196, 154, 156, 0.4);
+  transition: all 0.3s ease;
+}
+
+.enchanted-garden-restart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(196, 154, 156, 0.6);
+}
+
+.enchanted-garden-restart-btn:active {
+  transform: translateY(0);
+}
+
+
+.enchanted-garden-home-btn {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #E8B4B8, #C49A9C);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(196, 154, 156, 0.4);
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.enchanted-garden-home-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(196, 154, 156, 0.6);
+}
+
+.enchanted-garden-home-btn:active {
+  transform: translateY(0);
+}
+
+/* Game Board */
+.enchanted-garden-board-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.enchanted-garden-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Card Styles */
+.enchanted-garden-card {
+  aspect-ratio: 1;
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.enchanted-garden-card.flipped,
+.enchanted-garden-card.matched {
+  cursor: default;
+}
+
+.enchanted-garden-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 450ms;
+  transform-style: preserve-3d;
+}
+
+.enchanted-garden-card.flipped .enchanted-garden-card-inner {
+  transform: rotateY(180deg) rotateX(5deg);
+}
+
+.enchanted-garden-card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.enchanted-garden-card-back {
+  background: linear-gradient(135deg, #F4E4E1, #E8B4B8);
+  border: 3px solid #C49A9C;
+}
+
+.enchanted-garden-card-back::before {
+  content: '🌸';
+  font-size: 2rem;
+  opacity: 0.6;
+}
+
+.enchanted-garden-card-front {
+  background: linear-gradient(135deg, #FDF8F7, #F4E4E1);
+  border: 3px solid #E8B4B8;
+  transform: rotateY(180deg);
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+  font-size: 3rem;
+}
+
+.enchanted-garden-card.matched .enchanted-garden-card-front {
+  box-shadow: 0 0 20px rgba(232, 180, 184, 0.8);
+  border-color: #8B4B6B;
+}
+
+/* Compliment Panel */
+.enchanted-garden-compliment-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #FDF8F7, #F4E4E1);
+  border: 2px solid #C49A9C;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.enchanted-garden-compliment-panel.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.enchanted-garden-compliment-panel::before {
+  content: '🌸';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.5rem;
+  color: #C49A9C;
+}
+
+.enchanted-garden-compliment-panel::after {
+  content: '🌸';
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: #C49A9C;
+}
+
+.enchanted-garden-compliment-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: #8B4B6B;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Win Modal */
+.enchanted-garden-win-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.enchanted-garden-win-modal.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.enchanted-garden-win-content {
+  background: linear-gradient(135deg, #FDF8F7, #F4E4E1);
+  border: 3px solid #C49A9C;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.enchanted-garden-win-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: #8B4B6B;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.enchanted-garden-win-stats {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3rem;
+  color: #C49A9C;
+  margin-bottom: 30px;
+}
+
+.enchanted-garden-win-stats div {
+  margin-bottom: 10px;
+}
+
+/* Utility Classes */
+.enchanted-garden-hidden {
+  display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .enchanted-garden-title {
+    font-size: 2.5rem;
+  }
+
+  .enchanted-garden-stats {
+    gap: 20px;
+  }
+
+  .enchanted-garden-board {
+    gap: 10px;
+    max-width: 350px;
+  }
+
+  .enchanted-garden-card-front {
+    font-size: 2.5rem;
+  }
+
+  .enchanted-garden-container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .enchanted-garden-title {
+    font-size: 2rem;
+  }
+
+  .enchanted-garden-stat-label {
+    font-size: 1rem;
+  }
+
+  .enchanted-garden-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .enchanted-garden-restart-btn {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+
+  .enchanted-garden-board {
+    max-width: 300px;
+    gap: 8px;
+  }
+
+  .enchanted-garden-card-front {
+    font-size: 2rem;
+  }
+
+  .enchanted-garden-compliment-text {
+    font-size: 1.3rem;
+  }
+
+  .enchanted-garden-win-title {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,83 @@
+.book-animation-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    perspective: 1000px;
+}
+
+.book-wrap {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+    transform-origin: left center;
+}
+
+.book-wrap.rotate {
+    transform: rotateY(-15deg);
+}
+
+.book-wrap.flip {
+    transform: translateX(200px) rotateY(-180deg);
+}
+
+.book,
+.book-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transform-style: preserve-3d;
+}
+
+.book {
+    cursor: pointer;
+    border-radius: 15px 0 15px 0;
+}
+
+.book-back {
+    transform: rotateY(180deg);
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0 15px 0 15px;
+    overflow: hidden;
+}
+
+.page-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.book-content {
+    position: relative;
+    z-index: 2;
+    color: #333;
+    text-align: center;
+    padding: 40px;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+    font-family: "Cinzel Decorative", serif;
+}
+
+.book-content h3 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.book-content p {
+    font-size: 14px;
+    line-height: 1.6;
+}

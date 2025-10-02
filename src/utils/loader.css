@@ -1,0 +1,9 @@
+.loader-overlay {
+  position: fixed;
+  inset: 0; /* covers full screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8); /* transparent white overlay */
+  z-index: 9999; /* stays above everything */
+}

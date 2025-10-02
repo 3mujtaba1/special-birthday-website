@@ -1,0 +1,754 @@
+/* Fruit Mixer Pro Game - Locally Scoped CSS */
+/* All classes are prefixed with "fruit-mixer-" for local scoping */
+
+:root {
+  /* Color palette for Fruit Mixer */
+  --fruit-mixer-primary: #FF6B6B;
+  --fruit-mixer-secondary: #4ECDC4;
+  --fruit-mixer-accent: #FFE066;
+  --fruit-mixer-success: #51CF66;
+  --fruit-mixer-warning: #FFB84D;
+  --fruit-mixer-danger: #FF6B6B;
+  --fruit-mixer-info: #74C0FC;
+
+  /* Fruit colors */
+  --fruit-mixer-red: #FF6B6B;
+  --fruit-mixer-orange: #FF8C00;
+  --fruit-mixer-yellow: #FFD700;
+  --fruit-mixer-purple: #9370DB;
+  --fruit-mixer-brown: #8B4513;
+
+  /* UI colors */
+  --fruit-mixer-white: #FFFFFF;
+  --fruit-mixer-black: #000000;
+  --fruit-mixer-gray-100: #F8F9FA;
+  --fruit-mixer-gray-200: #E9ECEF;
+  --fruit-mixer-gray-300: #DEE2E6;
+  --fruit-mixer-gray-400: #CED4DA;
+  --fruit-mixer-gray-500: #ADB5BD;
+  --fruit-mixer-gray-600: #6C757D;
+  --fruit-mixer-gray-700: #495057;
+  --fruit-mixer-gray-800: #343A40;
+  --fruit-mixer-gray-900: #212529;
+
+  /* Shadows */
+  --fruit-mixer-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --fruit-mixer-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.15);
+  --fruit-mixer-shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.2);
+  --fruit-mixer-shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.25);
+
+  /* Transitions */
+  --fruit-mixer-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --fruit-mixer-transition-fast: all 0.15s ease;
+}
+
+/* Base container */
+.fruit-mixer-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow: hidden;
+  line-height: 1.6;
+}
+
+.fruit-mixer-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Button styles */
+.fruit-mixer-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--fruit-mixer-transition);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--fruit-mixer-white);
+  color: var(--fruit-mixer-gray-800);
+  box-shadow: var(--fruit-mixer-shadow-md);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.fruit-mixer-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.fruit-mixer-btn:hover::before {
+  left: 100%;
+}
+
+.fruit-mixer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--fruit-mixer-shadow-lg);
+}
+
+.fruit-mixer-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--fruit-mixer-shadow-md);
+}
+
+.fruit-mixer-btn--primary {
+  background: linear-gradient(45deg, var(--fruit-mixer-primary), #FF8A65);
+  color: white;
+  font-weight: 700;
+}
+
+.fruit-mixer-btn--primary:hover {
+  background: linear-gradient(45deg, #FF5252, #FF7043);
+}
+
+.fruit-mixer-btn--outline {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.fruit-mixer-btn--outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.fruit-mixer-btn--lg {
+  padding: 18px 36px;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 16px;
+}
+
+/* Main page button */
+.fruit-mixer-main-page-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: var(--fruit-mixer-gray-800);
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: 600;
+}
+
+.fruit-mixer-main-page-btn:hover {
+  background: var(--fruit-mixer-white);
+  border-color: var(--fruit-mixer-primary);
+  color: var(--fruit-mixer-primary);
+  transform: translateY(-2px);
+}
+
+/* Screen layouts */
+.fruit-mixer-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.fruit-mixer-screen.hidden {
+  display: none;
+}
+
+.fruit-mixer-screen-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 50px;
+  box-shadow: var(--fruit-mixer-shadow-xl);
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Game title */
+.fruit-mixer-game-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: var(--fruit-mixer-primary);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fruit-mixer-title-glow 3s ease-in-out infinite alternate;
+  background: linear-gradient(45deg, var(--fruit-mixer-primary), #FF8A65, var(--fruit-mixer-accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes fruit-mixer-title-glow {
+  from { 
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  to { 
+    transform: scale(1.02);
+    filter: brightness(1.1);
+  }
+}
+
+/* Game preview */
+.fruit-mixer-game-preview {
+  margin: 30px 0;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.fruit-mixer-preview-fruits {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.fruit-mixer-fruit-icon {
+  font-size: 4rem;
+  animation: fruit-mixer-float 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.fruit-mixer-fruit-icon:nth-child(1) { animation-delay: 0s; }
+.fruit-mixer-fruit-icon:nth-child(2) { animation-delay: 0.5s; }
+.fruit-mixer-fruit-icon:nth-child(3) { animation-delay: 1s; }
+.fruit-mixer-fruit-icon:nth-child(4) { animation-delay: 1.5s; }
+
+.fruit-mixer-fruit-icon:hover {
+  transform: scale(1.2) rotate(5deg);
+}
+
+@keyframes fruit-mixer-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* Instructions */
+.fruit-mixer-instructions {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.fruit-mixer-instructions h3 {
+  color: var(--fruit-mixer-gray-800);
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.fruit-mixer-instructions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+.fruit-mixer-instructions li {
+  padding: 15px 0;
+  font-size: 1.2rem;
+  color: var(--fruit-mixer-gray-700);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+}
+
+.fruit-mixer-instructions li:last-child {
+  border-bottom: none;
+}
+
+/* Perfect combinations */
+.fruit-mixer-perfect-combinations {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6));
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.fruit-mixer-perfect-combinations h4 {
+  color: var(--fruit-mixer-gray-800);
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.fruit-mixer-combo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  justify-items: center;
+}
+
+.fruit-mixer-combo {
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--fruit-mixer-shadow-md);
+  transition: var(--fruit-mixer-transition);
+  cursor: pointer;
+  min-width: 180px;
+  text-align: center;
+}
+
+.fruit-mixer-combo:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--fruit-mixer-shadow-lg);
+}
+
+.fruit-mixer-combo--red {
+  background: linear-gradient(45deg, var(--fruit-mixer-red), #FF8A80);
+}
+
+.fruit-mixer-combo--orange {
+  background: linear-gradient(45deg, var(--fruit-mixer-orange), #FFB347);
+}
+
+.fruit-mixer-combo--yellow {
+  background: linear-gradient(45deg, var(--fruit-mixer-yellow), #FFEF94);
+  color: var(--fruit-mixer-gray-800);
+  text-shadow: none;
+}
+
+.fruit-mixer-combo--purple {
+  background: linear-gradient(45deg, var(--fruit-mixer-purple), #DDA0DD);
+}
+
+/* Game UI */
+.fruit-mixer-game-ui {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 40px;
+  pointer-events: none;
+}
+
+.fruit-mixer-ui-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 20px 40px;
+  border-radius: 20px;
+  box-shadow: var(--fruit-mixer-shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  gap: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.fruit-mixer-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  min-width: 80px;
+}
+
+.fruit-mixer-stat-label {
+  font-size: 0.9rem;
+  color: var(--fruit-mixer-gray-600);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fruit-mixer-stat-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--fruit-mixer-primary);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Game canvas */
+.fruit-mixer-game-canvas {
+  border-radius: 24px;
+  box-shadow: var(--fruit-mixer-shadow-xl);
+  cursor: none;
+  background: linear-gradient(to bottom, #87CEEB 0%, #F0E68C 60%, #DEB887 100%);
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  margin-top: 20px;
+}
+
+.fruit-mixer-game-canvas:focus {
+  outline: 3px solid var(--fruit-mixer-primary);
+  outline-offset: 4px;
+}
+
+/* Game message */
+.fruit-mixer-game-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  padding: 20px 40px;
+  border-radius: 20px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--fruit-mixer-primary);
+  box-shadow: var(--fruit-mixer-shadow-xl);
+  z-index: 1000;
+  animation: fruit-mixer-message-appear 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+@keyframes fruit-mixer-message-appear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) translateY(0);
+  }
+}
+
+/* Game over screen */
+.fruit-mixer-final-stats {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 30px 0;
+  text-align: left;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.fruit-mixer-final-stats h3 {
+  color: var(--fruit-mixer-gray-800);
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.fruit-mixer-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.fruit-mixer-stat-row:last-child {
+  border-bottom: none;
+}
+
+.fruit-mixer-highlight {
+  font-weight: 800;
+  color: var(--fruit-mixer-primary);
+  font-size: 1.4rem;
+}
+
+.fruit-mixer-game-over-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .fruit-mixer-screen-content {
+    padding: 30px 20px;
+    margin: 20px;
+    border-radius: 20px;
+  }
+
+  .fruit-mixer-game-title {
+    font-size: 2.5rem;
+  }
+
+  .fruit-mixer-instructions li {
+    font-size: 1.1rem;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .fruit-mixer-game-canvas {
+    width: calc(100vw - 40px);
+    height: auto;
+    max-width: 800px;
+    border-radius: 16px;
+  }
+
+  .fruit-mixer-ui-top {
+    padding: 15px 20px;
+    margin: 0 20px;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .fruit-mixer-stat-value {
+    font-size: 1.4rem;
+  }
+
+  .fruit-mixer-combo-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .fruit-mixer-combo {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .fruit-mixer-game-over-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fruit-mixer-main-page-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  .fruit-mixer-fruit-icon {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .fruit-mixer-game-title {
+    font-size: 2rem;
+  }
+
+  .fruit-mixer-ui-top {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .fruit-mixer-stat {
+    flex-direction: row;
+    gap: 10px;
+    min-width: auto;
+  }
+
+  .fruit-mixer-stat-label,
+  .fruit-mixer-stat-value {
+    font-size: 1rem;
+  }
+
+  .fruit-mixer-game-message {
+    font-size: 1.4rem;
+    padding: 15px 25px;
+  }
+
+  .fruit-mixer-final-stats {
+    padding: 25px 20px;
+  }
+
+  .fruit-mixer-stat-row {
+    font-size: 1.1rem;
+  }
+
+  .fruit-mixer-highlight {
+    font-size: 1.2rem;
+  }
+}
+
+/* Animation utilities */
+.fruit-mixer-fade-in {
+  animation: fruit-mixer-fadeIn 0.6s ease-in;
+}
+
+@keyframes fruit-mixer-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fruit-mixer-slide-up {
+  animation: fruit-mixer-slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fruit-mixer-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fruit-mixer-bounce {
+  animation: fruit-mixer-bounce 0.6s ease;
+}
+
+@keyframes fruit-mixer-bounce {
+  0%, 20%, 53%, 80%, 100% { transform: translate3d(0, 0, 0); }
+  40%, 43% { transform: translate3d(0, -20px, 0); }
+  70% { transform: translate3d(0, -10px, 0); }
+  90% { transform: translate3d(0, -2px, 0); }
+}
+
+/* Loading states */
+.fruit-mixer-loading {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--fruit-mixer-primary);
+  animation: fruit-mixer-spin 1s ease-in-out infinite;
+}
+
+@keyframes fruit-mixer-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Accessibility improvements */
+.fruit-mixer-btn:focus,
+.fruit-mixer-game-canvas:focus {
+  outline: 3px solid var(--fruit-mixer-primary);
+  outline-offset: 3px;
+}
+
+.fruit-mixer-btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .fruit-mixer-container {
+    background: #000;
+    color: #fff;
+  }
+
+  .fruit-mixer-screen-content {
+    background: #fff;
+    color: #000;
+    border: 3px solid #000;
+  }
+
+  .fruit-mixer-btn {
+    border: 2px solid #000;
+  }
+
+  .fruit-mixer-combo {
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .fruit-mixer-game-title,
+  .fruit-mixer-fruit-icon,
+  .fruit-mixer-btn,
+  .fruit-mixer-fade-in,
+  .fruit-mixer-slide-up,
+  .fruit-mixer-bounce,
+  .fruit-mixer-message-appear {
+    animation: none;
+  }
+
+  .fruit-mixer-btn {
+    transition: none;
+  }
+
+  .fruit-mixer-btn:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .fruit-mixer-container {
+    background: white;
+    color: black;
+  }
+
+  .fruit-mixer-main-page-btn,
+  .fruit-mixer-btn,
+  .fruit-mixer-game-canvas,
+  .fruit-mixer-game-ui {
+    display: none;
+  }
+
+  .fruit-mixer-screen-content {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .fruit-mixer-container {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  }
+
+  .fruit-mixer-screen-content {
+    background: rgba(44, 62, 80, 0.95);
+    color: #ecf0f1;
+  }
+
+  .fruit-mixer-instructions h3,
+  .fruit-mixer-final-stats h3 {
+    color: #ecf0f1;
+  }
+
+  .fruit-mixer-instructions li {
+    color: #bdc3c7;
+  }
+
+  .fruit-mixer-stat-label {
+    color: #95a5a6;
+  }
+}

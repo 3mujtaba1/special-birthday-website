@@ -1,0 +1,272 @@
+/* Locally scoped CSS - wrap everything in .cake-game-container */
+
+.cake-game-container {
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b, #ff6eb4);
+    background-size: 400% 400%;
+    animation: cake-game-gradientMove 10s ease infinite;
+    position: relative; /* ensures child abs positioning works */
+}
+
+@keyframes cake-game-gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.cake-game-container .instructions {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #F0E4D0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    color: #553C13;
+    padding: 15px 25px;
+    border-radius: 15px;
+    border: 3px solid #553C13;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    max-width: 90vw;
+    width: 600px;
+    z-index: 100;
+    line-height: 1.4;
+    backdrop-filter: blur(5px);
+    animation: instructionsPulse 3s ease-in-out infinite;
+}
+
+@keyframes instructionsPulse {
+    0% {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        transform: translateX(-50%) scale(1.02);
+    }
+    100% {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+
+.cake-game-container .candle-count-display {
+    position: fixed;
+    display: flex;
+    top: 16px;
+    left: 0;
+    right: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 150px;
+    background-color: #F0E4D0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #553C13
+}
+
+.cake-game-container .candle-count-display span {
+  font-weight: bold;
+  color: #AD030F;
+}
+
+.cake-game-container .cake {
+  position: absolute;
+  width: 250px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin-top: -70px;
+  margin-left: -170px;
+}
+
+.cake-game-container .plate {
+  width: 370px;
+  height: 110px;
+  position: absolute;
+  bottom: -10px;
+  left: -10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  box-shadow: 0 2px 0 #b3b3b3, 0 4px 0 #b3b3b3, 0 5px 40px rgba(0, 0, 0, 0.5);
+}
+
+.cake-game-container .cake > * {
+  position: absolute;
+}
+
+.cake-game-container .layer {
+  position: absolute;
+  display: block;
+  width: 350px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #553c13;
+  box-shadow: 0 2px 0px #6a4b18, 0 4px 0px #33240b, 0 6px 0px #32230b, 0 8px 0px #31230b, 0 10px 0px #30220b, 0 12px 0px #2f220b, 0 14px 0px #2f210a, 0 16px 0px #2e200a, 0 18px 0px #2d200a, 0 20px 0px #2c1f0a, 0 22px 0px #2b1f0a, 0 24px 0px #2a1e09, 0 26px 0px #2a1d09, 0 28px 0px #291d09, 0 30px 0px #281c09;
+}
+
+.cake-game-container .layer-top {
+  top: 0px;
+}
+
+.cake-game-container .layer-middle {
+  top: 33px;
+}
+
+.cake-game-container .layer-bottom {
+  top: 66px;
+}
+
+.cake-game-container .icing {
+  top: 2px;
+  left: 5px;
+  background-color: #f0e4d0;
+  width: 340px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.cake-game-container .icing:before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  bottom: 6px;
+  left: 5px;
+  background-color: #f4ebdc;
+  box-shadow: 0 0 4px #f6efe3, 0 0 4px #f6efe3, 0 0 4px #f6efe3;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.cake-game-container .drip {
+ display: block;
+  width: 50px;
+  height: 60px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: #f0e4d0; 
+}
+
+.cake-game-container .drip-one {
+  top: 53px;
+  left: 5px;
+  transform: skewY(15deg);
+  height: 48px;
+  width: 40px;
+}
+
+.cake-game-container .drip-two {
+  top: 69px;
+  left: 181px;
+}
+
+.cake-game-container .drip-three {
+  top: 54px;
+  left: 82px;
+  width: 80px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.cake-game-container .drip-four {
+  top: 69px;
+  left: 285px;
+  transform: skewY(-15deg);
+}
+
+.cake-game-container .candle {
+  background-color: #7B020B;
+  width: 12px;
+  height: 35px;
+  border-radius: 6px/3px;
+  top: -20px;
+  left: 50%;
+  margin-left: -8px;
+  z-index: 10;
+}
+
+.cake-game-container .candle:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ad030f;
+}
+
+.cake-game-container .candle.out .flame {
+  display: none;
+}
+
+.cake-game-container .flame {
+  position: absolute;
+  background-color: orange;
+  width: 10px;
+  height: 25px;
+  border-radius: 8px 8px 8px 8px/20px 20px 8px 8px;
+  top: -34px;
+  left: 50%;
+  margin-left: -7.5px;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+  transform-origin: 50% 90%;
+  animation: flicker 1s ease-in-out alternate infinite;
+}
+
+@keyframes flicker {
+  0% {
+    transform: skewX(5deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.2), 0 0 20px rgba(255, 165, 0, 0.2), 0 0 60px rgba(255, 165, 0, 0.2), 0 0 80px rgba(255, 165, 0, 0.2);
+  }
+  25% {
+    transform: skewX(-5deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+  }
+  50% {
+    transform: skewX(10deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.3), 0 0 20px rgba(255, 165, 0, 0.3), 0 0 60px rgba(255, 165, 0, 0.3), 0 0 80px rgba(255, 165, 0, 0.3);
+  }
+  75% {
+    transform: skewX(-10deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.4), 0 0 20px rgba(255, 165, 0, 0.4), 0 0 60px rgba(255, 165, 0, 0.4), 0 0 80px rgba(255, 165, 0, 0.4);
+  }
+  100% {
+    transform: skewX(5deg);
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
+  }
+}
+
+.cake-game-container .back-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: #553C13;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}

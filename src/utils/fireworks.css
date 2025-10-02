@@ -1,0 +1,72 @@
+/* =========================
+   Fireworks Background Layer
+   ========================= */
+.fireworks-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none; /* don’t block clicks */
+  z-index: 999; /* above everything else */
+  background: transparent;
+}
+
+/* =========================
+   Firework Particles
+   ========================= */
+.firework {
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: fireworks-launch 0.8s ease-out forwards,
+             fireworks-explode 1s ease-out 0.8s forwards,
+             fireworks-fade 1s ease-out 1.8s forwards;
+}
+
+/* =========================
+   Animations
+   ========================= */
+
+/* Firework launch upward */
+@keyframes fireworks-launch {
+  0%   { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-200px); opacity: 1; }
+}
+
+/* Firework explode outward */
+@keyframes fireworks-explode {
+  0%   { transform: scale(1); opacity: 1; }
+  100% { transform: scale(3); opacity: 1; }
+}
+
+/* Firework fade out */
+@keyframes fireworks-fade {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* =========================
+   Color Variations
+   ========================= */
+.firework.red    { background: #ff4b5c; }
+.firework.blue   { background: #4bb3ff; }
+.firework.green  { background: #4bff88; }
+.firework.yellow { background: #ffe14b; }
+.firework.purple { background: #d44bff; }
+
+/* =========================
+   Randomized Positions
+   ========================= */
+.firework:nth-child(1)  { left: 20%; animation-delay: 0s; }
+.firework:nth-child(2)  { left: 40%; animation-delay: 0.2s; }
+.firework:nth-child(3)  { left: 60%; animation-delay: 0.4s; }
+.firework:nth-child(4)  { left: 80%; animation-delay: 0.6s; }
+.firework:nth-child(5)  { left: 30%; animation-delay: 0.8s; }
+.firework:nth-child(6)  { left: 50%; animation-delay: 1s; }
+.firework:nth-child(7)  { left: 70%; animation-delay: 1.2s; }
+.firework:nth-child(8)  { left: 90%; animation-delay: 1.4s; }
+.firework:nth-child(9)  { left: 25%; animation-delay: 1.6s; }
+.firework:nth-child(10) { left: 75%; animation-delay: 1.8s; }
