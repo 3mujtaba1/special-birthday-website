@@ -8,12 +8,13 @@
     "build": "vite build",
     "build:gh": "vite build --base=/special-birthday-website/",
     "lint": "eslint .",
-    "preview": "vite preview", 
+    "preview": "vite preview",
     "predeploy": "npm run build:gh",
     "deploy": "gh-pages -d dist",
     "start": "vite"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.14",
     "gsap": "^3.13.0",
     "ldrs": "^1.1.7",
     "react": "^19.1.1",
