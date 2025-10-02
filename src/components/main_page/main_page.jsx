@@ -4,7 +4,7 @@ import './main_page.css';
 import BookAnimation from '../../utils/book_animation.jsx';
 import avatar from '../../assets/avatar.jpg';
 import BirthdaySidebar from '../../utils/sidebar.jsx';
-import Loader from '../../utils/Loader.jsx'; // ✅ import loader
+import Loader from '../../utils/loader.jsx'; // ✅ import loader
 
 const MainPage = () => {
   const navigate = useNavigate();
